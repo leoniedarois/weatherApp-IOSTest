@@ -45,6 +45,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cityNameButton" destination="FjB-Zp-PBT" id="FEx-lI-4LQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,7 +96,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.7840901415" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zFa-oo-9LF" firstAttribute="bottom" secondItem="Ebi-2G-8H6" secondAttribute="bottom" constant="108" id="0Ul-Jb-V0p"/>
                             <constraint firstItem="zFa-oo-9LF" firstAttribute="trailing" secondItem="uoO-xb-VjT" secondAttribute="trailing" constant="20" id="5l6-G5-F1h"/>
@@ -111,6 +114,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zFa-oo-9LF"/>
                     </view>
+                    <connections>
+                        <outlet property="background" destination="gqW-cB-ng2" id="UbO-pn-xDU"/>
+                        <outlet property="cityName" destination="Ebi-2G-8H6" id="bkR-4f-3Jg"/>
+                        <outlet property="descriptionLabel" destination="uoO-xb-VjT" id="IVS-ON-vp7"/>
+                        <outlet property="iconView" destination="Vaf-Zh-wzS" id="hxj-1J-vcE"/>
+                        <outlet property="tempLabel" destination="6wr-5A-sI8" id="ilP-gd-S6j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QjB-yp-z9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
