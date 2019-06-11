@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,111 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weatherApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VILLES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opV-YR-e61">
+                                <rect key="frame" x="20" y="68" width="122" height="45"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FjB-Zp-PBT">
+                                <rect key="frame" x="20" y="131" width="374" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="cityName">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ggl-6l-bQf" kind="show" id="68J-Ts-96D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FjB-Zp-PBT" firstAttribute="top" secondItem="opV-YR-e61" secondAttribute="bottom" constant="18" id="0uN-kW-xuT"/>
+                            <constraint firstItem="opV-YR-e61" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7MI-lY-pSn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FjB-Zp-PBT" secondAttribute="trailing" constant="20" id="H66-82-8pr"/>
+                            <constraint firstItem="opV-YR-e61" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="iDj-Uc-Awv"/>
+                            <constraint firstItem="FjB-Zp-PBT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mqC-gT-Hyi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="18.75"/>
+        </scene>
+        <!--City Simple View Controller-->
+        <scene sceneID="uAI-GC-vAw">
+            <objects>
+                <viewController id="Ggl-6l-bQf" customClass="citySimpleViewController" customModule="weatherApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gqW-cB-ng2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunny" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-Zh-wzS">
+                                <rect key="frame" x="20" y="256" width="374" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Xce-9O-QNh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wr-5A-sI8">
+                                <rect key="frame" x="24" y="586" width="367" height="76"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="63"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebi-2G-8H6">
+                                <rect key="frame" x="144" y="718" width="127" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoO-xb-VjT">
+                                <rect key="frame" x="244" y="174" width="150" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQT-fs-t2v">
+                                <rect key="frame" x="20" y="68" width="63" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Retour">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="OsS-ec-9XR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.7840901415" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zFa-oo-9LF" firstAttribute="bottom" secondItem="Ebi-2G-8H6" secondAttribute="bottom" constant="108" id="0Ul-Jb-V0p"/>
+                            <constraint firstItem="zFa-oo-9LF" firstAttribute="trailing" secondItem="uoO-xb-VjT" secondAttribute="trailing" constant="20" id="5l6-G5-F1h"/>
+                            <constraint firstItem="RQT-fs-t2v" firstAttribute="top" secondItem="zFa-oo-9LF" secondAttribute="top" constant="24" id="669-8k-IJE"/>
+                            <constraint firstItem="Vaf-Zh-wzS" firstAttribute="leading" secondItem="zFa-oo-9LF" secondAttribute="leading" constant="20" id="CAF-cZ-wor"/>
+                            <constraint firstItem="zFa-oo-9LF" firstAttribute="trailing" secondItem="Ebi-2G-8H6" secondAttribute="trailing" constant="143" id="PTf-GU-7hU"/>
+                            <constraint firstItem="zFa-oo-9LF" firstAttribute="trailing" secondItem="6wr-5A-sI8" secondAttribute="trailing" constant="23" id="Qth-LE-Ihu"/>
+                            <constraint firstItem="6wr-5A-sI8" firstAttribute="top" secondItem="Vaf-Zh-wzS" secondAttribute="bottom" constant="30" id="RwQ-sz-gHU"/>
+                            <constraint firstItem="zFa-oo-9LF" firstAttribute="trailing" secondItem="Vaf-Zh-wzS" secondAttribute="trailing" constant="20" id="cd6-mL-f7Z"/>
+                            <constraint firstItem="Vaf-Zh-wzS" firstAttribute="top" secondItem="uoO-xb-VjT" secondAttribute="bottom" constant="46" id="doZ-5h-Sij"/>
+                            <constraint firstItem="RQT-fs-t2v" firstAttribute="leading" secondItem="zFa-oo-9LF" secondAttribute="leading" constant="20" id="lh3-a5-nvF"/>
+                            <constraint firstItem="uoO-xb-VjT" firstAttribute="top" secondItem="zFa-oo-9LF" secondAttribute="top" constant="130" id="uE0-RR-LF3"/>
+                            <constraint firstItem="6wr-5A-sI8" firstAttribute="leading" secondItem="zFa-oo-9LF" secondAttribute="leading" constant="24" id="voY-xd-Qr5"/>
+                            <constraint firstItem="Ebi-2G-8H6" firstAttribute="leading" secondItem="zFa-oo-9LF" secondAttribute="leading" constant="144" id="wXF-FJ-LKB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zFa-oo-9LF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QjB-yp-z9l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942.02898550724649" y="18.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sunny" width="512" height="512"/>
+    </resources>
 </document>
