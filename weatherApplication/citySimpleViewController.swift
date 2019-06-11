@@ -29,18 +29,20 @@ class citySimpleViewController: UIViewController {
                     guard let weatherDetails = json["weather"] as? [[String : Any]], let weatherMain = json["main"] as? [String : Any] else { return }
                     let temp = Int(weatherMain["temp"] as? Double ?? 0)
                     let description = (weatherDetails.first?["description"] as? String)?.capitalizingFirstLetter()
+                    let city = (json["name"] as? String)?.capitalizingFirstLetter()
                     DispatchQueue.main.async {
-                        self.setWeather(weather: weatherDetails.first?["main"] as? String, description: description, temp: temp)
+                        self.setWeather(weather: weatherDetails.first?["main"] as? String, description: description, temp: temp, city: city)
                     }
                 } catch {
-                    print("We had an error retriving the weather...")
+                    print("Erreur")
                 }
             }
         }
         task.resume()
     }
     
-        func setWeather(weather: String?, description: String?, temp: Int) {
+    func setWeather(weather: String?, description: String?, temp: Int, city: String?) {
+            cityName.text = city ?? "..."
             descriptionLabel.text = description ?? "..."
             tempLabel.text = "\(temp)°"
             switch weather {
@@ -61,7 +63,6 @@ class citySimpleViewController: UIViewController {
                 background.backgroundColor = UIColor(red: 0.42, green: 0.55, blue: 0.71, alpha: 1.0)
             }
     }
-    
 }
     /*
     // MARK: - Navigation
@@ -73,7 +74,7 @@ class citySimpleViewController: UIViewController {
     }
     */
 
-
+// allows to have the first letter capitalized
 extension String {
     func capitalizingFirstLetter() -> String {
         return prefix(1).uppercased() + self.lowercased().dropFirst()
