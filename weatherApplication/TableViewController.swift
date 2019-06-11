@@ -8,24 +8,27 @@
 
 import UIKit
 
-struct Headline {
-    var id : Int
+struct CityData {
     var title : String
 }
 
 class TableViewController: UITableViewController {
     
-    var headlines = [
-        Headline(id: 6455259, title: "Paris"),
-        Headline(id: 6454573, title: "Lyon"),
-        Headline(id: 6447142, title: "Marseille"),
-        Headline(id: 6455058, title: "Bordeaux"),
-        Headline(id: 2990440, title: "Nice"),
-        Headline(id: 2973783, title: "Strasbourg"),
-        Headline(id: 6434483, title: "Nantes"),
-        Headline(id: 2983990, title: "Rennes"),
-        Headline(id: 6454034, title: "Montpellier"),
-        Headline(id: 6453974, title: "Toulouse"),
+    var cityDatas = [
+        CityData(title: "Bordeaux"),
+        CityData(title: "Bourges"),
+        CityData(title: "Brest"),
+        CityData(title: "Dijon"),
+        CityData(title: "Grenoble"),
+        CityData(title: "Lyon"),
+        CityData(title: "Marseille"),
+        CityData(title: "Montpellier"),
+        CityData(title: "Nantes"),
+        CityData(title: "Nice"),
+        CityData(title: "Paris"),
+        CityData(title: "Rennes"),
+        CityData(title: "Strasbourg"),
+        CityData(title: "Toulouse"),
     ]
 
     override func viewDidLoad() {
@@ -39,22 +42,20 @@ class TableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        // return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return headlines.count
+        // return the number of rows
+        return cityDatas.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
-        cell.textLabel?.text = headlines[indexPath.row].title
+        cell.textLabel?.text = cityDatas[indexPath.row].title
 
         return cell
     }
@@ -95,14 +96,17 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showCityWeather" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let controller = segue.destination as! citySimpleViewController
+                controller.selectedCity = cityDatas[indexPath.row]
+            }
+        }
     }
-    */
+ 
 
 }

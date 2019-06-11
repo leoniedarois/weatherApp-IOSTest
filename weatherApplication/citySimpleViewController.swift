@@ -15,13 +15,16 @@ class citySimpleViewController: UIViewController {
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var cityName: UILabel!
     @IBOutlet var background: UIView!
-    
+    var selectedCity:CityData = CityData(title: "Paris")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        guard let url = URL(string: "https://samples.openweathermap.org/data/2.5/weather?q=London&appid=55c9abe4a99520aec545290b0b43d1be") else { return }
+    
+        // api call openweathermap
+        let q = selectedCity.title
+        
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q="+q+"&units=metric&appid=55c9abe4a99520aec545290b0b43d1be") else { return }
+        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let data = data, error == nil {
                 do {
@@ -41,10 +44,11 @@ class citySimpleViewController: UIViewController {
         task.resume()
     }
     
+    // filling labels and choosing icons, colors
     func setWeather(weather: String?, description: String?, temp: Int, city: String?) {
-            cityName.text = city ?? "..."
+            cityName.text = city ?? ""
             descriptionLabel.text = description ?? "..."
-            tempLabel.text = "\(temp)°"
+            tempLabel.text = "\(temp) C°"
             switch weather {
             case "Sunny":
                 iconView.image = UIImage(named: "sunny")
@@ -54,25 +58,19 @@ class citySimpleViewController: UIViewController {
                 background.backgroundColor = UIColor(red: 0.76, green: 0.93, blue: 0.98, alpha: 1.0)
             case "Rain":
                 iconView.image = UIImage(named: "rain")
-                background.backgroundColor = UIColor(red: 0.97, green: 0.78, blue: 0.35, alpha: 1.0)
+                background.backgroundColor = UIColor(red: 0.42, green: 0.55, blue: 0.71, alpha: 1.0)
             case "Drizzle":
                 iconView.image = UIImage(named: "rain")
-                background.backgroundColor = UIColor(red: 0.88, green: 0.90, blue: 0.91, alpha: 1.0)
+                background.backgroundColor = UIColor(red: 0.42, green: 0.55, blue: 0.71, alpha: 1.0)
+            case "Clouds":
+                iconView.image = UIImage(named: "cloudy")
+                background.backgroundColor = UIColor(red: 0.76, green: 0.93, blue: 0.98, alpha: 1.0)
             default:
                 iconView.image = UIImage(named: "cloudy")
                 background.backgroundColor = UIColor(red: 0.42, green: 0.55, blue: 0.71, alpha: 1.0)
             }
     }
 }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 // allows to have the first letter capitalized
 extension String {
